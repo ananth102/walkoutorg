@@ -13,7 +13,6 @@ var config = {
 };
 var w = 0;
 firebase.initializeApp(config);
-t();
 (function($) {
 
 	"use strict";
@@ -175,7 +174,7 @@ t();
 
 })(jQuery);
 
-function t() {
+function t(admin) {
 	console.log("woof");
 	var database = firebase.database();
 	var names = [];
@@ -210,7 +209,7 @@ function t() {
 			console.log(woo);
 			for(var i =0;i<names.length;i++){
 	if(names[0] != null && w <2){
-		createCard(names[i],descriptions[i]);
+		createCard(names[i],descriptions[i],admin);
 	}
  }
  w++;
@@ -235,14 +234,24 @@ function onclickSubmission(){
 	console.log(nameOf+" "+description+" "+addressOf);
 
 }
+function createMap(){
+	var addressOf = document.getElementById('Address_of_event').value;
 
-function createCard(name,description){
+}
+
+function handlebrowse(name){
+	alert("you are signed up for event")
+}
+
+function createCard(name,description,admin){
 	if(name == null)name = "Walkout";
 	if(description == null)description = "description";
 	var dynamicContent = name;
 	var link = "protestScreen.html?dc="+dynamicContent;
-
-	var finalString = "<article> <a href='#' class='image'><img src='images/pic04.jpg' alt='' /></a><h3 class='major'>"+name+"</h3> <p>"+description+"</p> <a href= " + link + " class='special'>Learn more</a></article>";
+	var funct = "handlebrowse(name);";
+	if(admin == true)var finalString = "<article> <a href='#' class='image'><img src='images/pic04.jpg' alt='' /></a><h3 class='major'>"+name+"</h3> <p>"+description+"</p> <a href= " + link + " class='special'>Learn more</a></article>";
+	if(admin == false)var finalString = "<article> <a href='#' class='image'><img src='images/pic04.jpg' alt='' /></a><h3 class='major'>"+name+"</h3> <p>"+description+"</p> <button onclick='" + funct + "' class='special'>Learn more</button></article>";
+	console.log(admin);
 	var fragment = create(finalString);
 	document.getElementById("www").appendChild(fragment);
 
