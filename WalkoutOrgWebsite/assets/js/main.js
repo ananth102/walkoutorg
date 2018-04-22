@@ -3,7 +3,17 @@
 	html5up.net | @ajlkn
 	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
 */
-
+var config = {
+	apiKey: "AIzaSyBV4bkE1F93KM0gyeKfMve1BzES8WC1moo",
+	authDomain: "walkoutorrrg.firebaseapp.com",
+	databaseURL: "https://walkoutorrrg.firebaseio.com",
+	projectId: "walkoutorrrg",
+	storageBucket: "",
+	messagingSenderId: "832751515426"
+};
+var w = 0;
+firebase.initializeApp(config);
+t();
 (function($) {
 
 	"use strict";
@@ -164,3 +174,76 @@
 	});
 
 })(jQuery);
+
+function t() {
+	console.log("woof");
+	var database = firebase.database();
+	var names = [];
+	var woo = 0;
+	var descriptions = [];
+			database.ref().on("value", function(snapshot){
+				//console.log(snapshot);
+				//names.push(snapshot.child("one").child("Name").val());
+				//descriptions.push(snapshot.child("one").child("Description").val());
+				snapshot.forEach(function(childSnapshot){
+					//if(childs.indexOf(childSnapshot.child("message").val()) == -1){
+					childSnapshot.forEach(function(wSnapshot){
+
+						console.log(wSnapshot.child("text").val());
+						names.push(wSnapshot.child("Name").val());
+						descriptions.push(wSnapshot.child("Description").val());
+					});
+						woo++;
+
+					//}
+	  		});
+			});
+			//console.log(names[0]);
+			//console.log(descriptions[0]);
+			console.log(descriptions);
+			console.log(names);
+			console.log(woo);
+			for(var i =0;i<names.length;i++){
+	if(names[0] != null && w <2){
+		createCard(names[i],descriptions[i]);
+	}
+ }
+ w++;
+}
+
+function onclickSubmission(){
+	var nameOf = document.getElementById('name_of_event').value;
+	var description = document.getElementById('description_of_event').value;
+	var addressOf = document.getElementById('Address_of_event').value;
+	var messageListRef = firebase.database().ref('m');
+	var newMessageRef = messageListRef.push();
+	newMessageRef.set({
+  'Name': nameOf,
+  'Description': 'The Analytical Engine weaves algebraical patterns just as the Jacquard loom weaves flowers and leaves.'
+});
+
+	console.log(nameOf+" "+description+" "+addressOf);
+
+}
+
+function createCard(name,description){
+	if(name == null)name = "Walkout";
+	if(description == null)description = "description";
+	var finalString = "<article> <a href='#' class='image'><img src='images/pic04.jpg' alt='' /></a><h3 class='major'>"+name+"</h3> <p>"+description+"</p> <a href='#' class='special'>Learn more</a></article>";
+	var fragment = create(finalString);
+	document.getElementById("www").appendChild(fragment);
+
+	$(document).ready(function() {
+			$('www').append(finalString);
+		});
+
+}
+function create(htmlStr) {
+    var frag = document.createDocumentFragment(),
+        temp = document.createElement('div');
+    temp.innerHTML = htmlStr;
+    while (temp.firstChild) {
+        frag.appendChild(temp.firstChild);
+      }
+        return frag;
+    }

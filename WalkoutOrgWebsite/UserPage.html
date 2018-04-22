@@ -5,14 +5,12 @@
 	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
 -->
 <html>
+<script src="https://www.gstatic.com/firebasejs/4.13.0/firebase.js"></script>
 	<head>
 		<title>Dashboard</title>
 		<meta charset="utf-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1" />
-		<!--[if lte IE 8]><script src="assets/js/ie/html5shiv.js"></script><![endif]-->
 		<link rel="stylesheet" href="assets/css/main.css" />
-		<!--[if lte IE 9]><link rel="stylesheet" href="assets/css/ie9.css" /><![endif]-->
-		<!--[if lte IE 8]><link rel="stylesheet" href="assets/css/ie8.css" /><![endif]-->
 	</head>
 	<body>
 
@@ -51,19 +49,13 @@
 
 						<!-- Content -->
 							<div class="wrapper">
-								<div class="inner">
-									<a href="NewWalkout.html" class="button special">Create New Walkout</a>
-									<!--
-									<h3 class="major">Lorem ipsum dolor</h3>
-									<p>Morbi mattis mi consectetur tortor elementum, varius pellentesque velit convallis. Aenean tincidunt lectus auctor mauris maximus, ac scelerisque ipsum tempor. Duis vulputate ex et ex tincidunt, quis lacinia velit aliquet. Duis non efficitur nisi, id malesuada justo. Maecenas sagittis felis ac sagittis semper. Curabitur purus leo donec vel dolor at arcu tincidunt bibendum. Interdum et malesuada fames ac ante ipsum primis in faucibus. Fusce ut aliquet justo. Donec id neque ipsum. Integer eget ultricies odio. Nam vel ex a orci fringilla tincidunt. Aliquam eleifend ligula non velit accumsan cursus. Etiam ut gravida sapien.</p>
+								<div class="inner" id="meow">
 
-									<p>Vestibulum ultrices risus velit, sit amet blandit massa auctor sit amet. Sed eu lectus sem. Phasellus in odio at ipsum porttitor mollis id vel diam. Praesent sit amet posuere risus, eu faucibus lectus. Vivamus ex ligula, tempus pulvinar ipsum in, auctor porta quam. Proin nec commodo, vel scelerisque nisi scelerisque. Suspendisse id quam vel tortor tincidunt suscipit. Nullam auctor orci eu dolor consectetur, interdum ullamcorper ante tincidunt. Mauris felis nec felis elementum varius.</p>
+									<button onclick="t();" class="button special">Get previous walkouts</button>
+									<a href="NewWalkout.html" class="button default">Create new walkout</a>
 
-									<h3 class="major">Vitae phasellus</h3>
-									<p>Cras mattis ante fermentum, malesuada neque vitae, eleifend erat. Phasellus non pulvinar erat. Fusce tincidunt, nisl eget mattis egestas, purus ipsum consequat orci, sit amet lobortis lorem lacus in tellus. Sed ac elementum arcu. Quisque placerat auctor laoreet.</p>
-								-->
-									<section class="features">
-
+									<section class="features" id="www">
+										<!--
 										<article>
 											<a href="#" class="image"><img src="images/pic04.jpg" alt="" /></a>
 											<h3 class="major">Walkout Name</h3>
@@ -77,6 +69,7 @@
 											<a href="#" class="special">Learn more</a>
 											<!-- js needs to use everything in article -->
 											<!-- use ggl maps api to link for images -->
+											<!--
 										</article>
 										<!--
 
@@ -98,7 +91,7 @@
 
 					<section id="footer">
 						<div class="inner">
-							
+
 							<ul class="copyright">
 								<li>&copy; woof inc All rights reserved.</li><li>Design: <a href="http://html5up.net">HTML5 UP</a></li>
 							</ul>
@@ -106,18 +99,10 @@
 					</section>
 
 			</div>
-			<script src="https://www.gstatic.com/firebasejs/4.13.0/firebase.js"></script>
+
 <script>
   // Initialize Firebase
-  var config = {
-    apiKey: "AIzaSyBV4bkE1F93KM0gyeKfMve1BzES8WC1moo",
-    authDomain: "walkoutorrrg.firebaseapp.com",
-    databaseURL: "https://walkoutorrrg.firebaseio.com",
-    projectId: "walkoutorrrg",
-    storageBucket: "",
-    messagingSenderId: "832751515426"
-  };
-  firebase.initializeApp(config);
+
 </script>
 		<!-- Scripts -->
 			<script src="assets/js/skel.min.js"></script>
