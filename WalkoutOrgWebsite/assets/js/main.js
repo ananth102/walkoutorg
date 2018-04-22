@@ -219,7 +219,7 @@ function onclickSubmission(){
 	var newMessageRef = messageListRef.push();
 	newMessageRef.set({
   'Name': nameOf,
-  'Description': 'The Analytical Engine weaves algebraical patterns just as the Jacquard loom weaves flowers and leaves.'
+  'Description': description
 });
 
 	console.log(nameOf+" "+description+" "+addressOf);
@@ -229,7 +229,10 @@ function onclickSubmission(){
 function createCard(name,description){
 	if(name == null)name = "Walkout";
 	if(description == null)description = "description";
-	var finalString = "<article> <a href='#' class='image'><img src='images/pic04.jpg' alt='' /></a><h3 class='major'>"+name+"</h3> <p>"+description+"</p> <a href='#' class='special'>Learn more</a></article>";
+	var dynamicContent = name;
+	var link = "protestScreen.html?dc="+dynamicContent;
+
+	var finalString = "<article> <a href='#' class='image'><img src='images/pic04.jpg' alt='' /></a><h3 class='major'>"+name+"</h3> <p>"+description+"</p> <a href= " + link + " class='special'>Learn more</a></article>";
 	var fragment = create(finalString);
 	document.getElementById("www").appendChild(fragment);
 
