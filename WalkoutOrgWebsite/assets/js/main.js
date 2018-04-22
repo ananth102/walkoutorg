@@ -181,6 +181,8 @@ function t() {
 	var names = [];
 	var woo = 0;
 	var descriptions = [];
+	var addresses = [];
+	var dates = [];
 			database.ref().on("value", function(snapshot){
 				//console.log(snapshot);
 				//names.push(snapshot.child("one").child("Name").val());
@@ -192,6 +194,9 @@ function t() {
 						console.log(wSnapshot.child("text").val());
 						names.push(wSnapshot.child("Name").val());
 						descriptions.push(wSnapshot.child("Description").val());
+						addresses.push(wSnapshot.child("Address").val());
+						dates.push(wSnapshot.child("Date").val());
+
 					});
 						woo++;
 
@@ -215,11 +220,16 @@ function onclickSubmission(){
 	var nameOf = document.getElementById('name_of_event').value;
 	var description = document.getElementById('description_of_event').value;
 	var addressOf = document.getElementById('Address_of_event').value;
+	var date = document.getElementById('Date').value;
+	var jsonMap;
+	var image;
 	var messageListRef = firebase.database().ref('m');
 	var newMessageRef = messageListRef.push();
 	newMessageRef.set({
   'Name': nameOf,
-  'Description': description
+  'Description': description,
+	'Address' : addressOf,
+	'Date' : date
 });
 
 	console.log(nameOf+" "+description+" "+addressOf);

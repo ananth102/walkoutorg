@@ -70,7 +70,14 @@ woo++;
 if(woo ==1)buttonfnc();
 }
 
+function emailNotify(){
+  alert("Protest participants have been notified");
 
+}
+
+function mediaEmail() {
+  alert("Associated Press, CBS, Fox News, NBC's local affiliates have been notified");
+}
 
 
 /*
